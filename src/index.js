@@ -14,7 +14,6 @@ ReactDOM.render(
   <>
     <Provider store={store}>
       <Router>
-        This is index
         <App />
       </Router>
     </Provider>

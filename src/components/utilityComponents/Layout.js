@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import "normalize.css";
@@ -27,12 +28,17 @@ const BodyStyles = styled.div`
 `;
 
 export default function Layout({ children }) {
-  return (
-    <>
-      <GlobalStyles />
-      <Typography />
+  let location = useLocation();
+  if (location.pathname === "/login") {
+    return <>{children}</>;
+  } else {
+    return (
+      <>
+        <GlobalStyles />
+        <Typography />
 
-      <BodyStyles>{children}</BodyStyles>
-    </>
-  );
+        <BodyStyles>{children}</BodyStyles>
+      </>
+    );
+  }
 }
